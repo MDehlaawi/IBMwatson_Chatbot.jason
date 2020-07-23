@@ -1,0 +1,208 @@
+{
+  "intents": [
+    {
+      "intent": "weather",
+      "examples": [
+        {
+          "text": "how is the weather today?"
+        },
+        {
+          "text": "what's the weather for today"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "greetings",
+      "examples": [
+        {
+          "text": "hey"
+        },
+        {
+          "text": "good morning"
+        },
+        {
+          "text": "good evinig"
+        },
+        {
+          "text": "get started"
+        },
+        {
+          "text": "hi"
+        },
+        {
+          "text": "link start"
+        },
+        {
+          "text": "hello"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "valediction",
+      "examples": [
+        {
+          "text": "good to see you"
+        },
+        {
+          "text": "chao"
+        },
+        {
+          "text": "see you next time"
+        },
+        {
+          "text": "bey"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    },
+    "from-sample": true
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "weather",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "it's sunny."
+              },
+              {
+                "text": "it is 36 degree in your city."
+              },
+              {
+                "text": "it's really hot today."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#weather",
+      "dialog_node": "node_7_1595519010803",
+      "previous_sibling": "node_7_1595518616773"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_7_1595519010803",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "valediction",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "welcome in anytime."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#valediction",
+      "dialog_node": "node_7_1595518616773",
+      "previous_sibling": "node_9_1595518492071"
+    },
+    {
+      "type": "standard",
+      "title": "greeet",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi, this is Wasabi nice to see you."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#greetings",
+      "dialog_node": "node_9_1595518492071",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "My first skill",
+  "language": "en",
+  "description": ""
+}
